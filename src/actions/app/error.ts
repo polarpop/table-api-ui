@@ -1,9 +1,9 @@
-import { AppAction } from '../../types';
+import { App } from '../../types';
 import constants from '../../constants';
 
 const { app } = constants;
 
-export function onAppError({ error }: { error: Error }): AppAction {
+export function onAppError({ error }: { error: Error }): App.AppAction {
   return {
     type: app.APP_ERROR_CREATED,
     payload: {
@@ -12,7 +12,7 @@ export function onAppError({ error }: { error: Error }): AppAction {
   }
 }
 
-export function dismissAppError(): Partial<AppAction> {
+export function dismissAppError(): Partial<App.AppAction> {
   return {
     type: app.APP_ERROR_DISMISSED
   }

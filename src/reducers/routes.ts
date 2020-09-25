@@ -1,6 +1,6 @@
 import constants from '../constants';
 import { createDefaultReducerState } from '../utils';
-import { RoutesState, RouteAction, AppRoute } from '../types'
+import { Routes } from '../types'
 
 
 
@@ -21,18 +21,18 @@ import { RoutesState, RouteAction, AppRoute } from '../types'
  *  secure: false
  * }]);
 */
-const defaultState = createDefaultReducerState<RoutesState>([]);
+const defaultState = createDefaultReducerState<Routes.RoutesState>([]);
 
-export function routes(state = defaultState, action: RouteAction) {
+export function routes(state = defaultState, action: Routes.RouteAction) {
   switch (action.type) {
     case constants.routes.ROUTE_ADDED:
       const newRoutes = [...state];
-      if (!state.find((route: AppRoute) => route.id === action.payload.id)) {
+      if (!state.find((route: Routes.AppRoute) => route.id === action.payload.id)) {
         newRoutes.push(action.payload);
       }
       return newRoutes;
     case constants.routes.ROUTE_REPLACED:
-      return state.filter((route: AppRoute) => route.id !== action.payload.id);
+      return state.filter((route: Routes.AppRoute) => route.id !== action.payload.id);
     default:
       return state;
   }

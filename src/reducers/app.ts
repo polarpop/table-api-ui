@@ -1,4 +1,4 @@
-import { AppState, AppAction } from '../types';
+import { App } from '../types';
 import constants from '../constants';
 import { createMaterialTheme } from '../utils';
 
@@ -10,7 +10,7 @@ const defaultState = {
   loading: false
 };
 
-export function app(state: AppState = defaultState, action: AppAction) {
+export function app(state: App.AppState = defaultState, action: App.AppAction) {
   switch (action.type) {
     case constants.app.APP_LOADING:
       return {

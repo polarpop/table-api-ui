@@ -1,9 +1,9 @@
-import { AppAction, AppThemeAction } from '../../types';
+import { App } from '../../types';
 import constants from '../../constants';
 
 const { app } = constants;
 
-export function onThemeChange(payload: AppThemeAction): AppAction {
+export function onThemeChange(payload: App.AppThemeAction): App.AppAction {
   return {
     type: app.THEME_CHANGE,
     payload

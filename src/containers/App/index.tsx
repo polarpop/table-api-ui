@@ -6,7 +6,7 @@ import { Switch } from 'react-router';
 
 import { ErrorBoundary, LazyRoute } from '../../components';
 
-import { AppRoute } from '../../types';
+import { Routes } from '../../types';
 
 import { onRouteAdded, onTitleChange } from '../../actions';
 
@@ -29,7 +29,7 @@ export default function MainApp({ history }: any) {
 
   if (routes.length === 0) {
     dispatch(onRouteAdded({
-      id: Math.random(),
+      id: Math.floor(Math.random()),
       component: () => import('../../components/AppLoading/AppLoading'),
       path: '/',
       secure: false,
@@ -48,7 +48,7 @@ export default function MainApp({ history }: any) {
       <ErrorBoundary>
         <ConnectedRouter history={history}>
           <Switch>
-            {routes.map((route: AppRoute, index: number) => (
+            {routes.map((route: Routes.AppRoute, index: number) => (
               <LazyRoute
                 route={{ ...route.props }}
                 component={route.component}
