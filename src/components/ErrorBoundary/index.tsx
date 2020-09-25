@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import Backdrop from '@material-ui/core/Backdrop';
+import Container from '@material-ui/core/Container';
 
 import { mapStateToProps } from '../../utils';
 import { onAppError, onAppLoaded, onTitleChange } from '../../actions';
@@ -41,20 +41,29 @@ class ErrorBoundary extends React.Component<Props, State> {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return (
-        <Backdrop open={this.state.hasError}>
-          <Card raised>
-            <CardContent>
-              <Typography gutterBottom variant="h6">
-                Well this is embarrasing
+        <React.Fragment>
+          <Container maxWidth="xl" style={{
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            height: "100vh",
+            alignItems: 'center',
+            justifyContent: 'center',
+            verticalAlign: 'middle',
+            display: 'flex'
+          }}>
+            <Card raised>
+              <CardContent>
+                <Typography gutterBottom variant="h6">
+                  Well this is embarrasing
               </Typography>
-              {process.env.NODE_ENV === 'development' && this.state.error ?
-                (<ErrorAccordian />) : (
-                  <Typography>
-                    {(this.state.error?.message || "Something went wrong")}
-                  </Typography>)}
-            </CardContent>
-          </Card>
-        </Backdrop>
+                {process.env.NODE_ENV === 'development' && this.state.error ?
+                  (<ErrorAccordian />) : (
+                    <Typography>
+                      {(this.state.error?.message || "Something went wrong")}
+                    </Typography>)}
+              </CardContent>
+            </Card>
+          </Container>
+        </React.Fragment>
       );
     }
 

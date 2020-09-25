@@ -1,8 +1,18 @@
-import { CircularProgress, Backdrop } from '@material-ui/core';
+import { CircularProgress, Container } from '@material-ui/core';
 import React from 'react';
 
 export const AppLoading: React.FC = () => (
-  <Backdrop open={true}>
+  <Container maxWidth="xl" style={{
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.7)",
+    height: "100vh",
+    alignItems: 'center',
+    justifyContent: 'center',
+    verticalAlign: 'middle',
+    display: 'flex'
+  }}>
     <CircularProgress></CircularProgress>
-  </Backdrop>
+  </Container>
 );

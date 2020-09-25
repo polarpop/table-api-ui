@@ -30,7 +30,7 @@ export default function MainApp({ history }: any) {
   if (routes.length === 0) {
     dispatch(onRouteAdded({
       id: Math.floor(Math.random()),
-      component: () => import('../../components/AppLoading/AppLoading'),
+      component: () => import('../NotFound'),
       path: '/',
       secure: false,
       exact: true

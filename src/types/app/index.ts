@@ -17,7 +17,6 @@ export namespace App {
   };
 
   export type AppState = {
-    useResponsiveFonts: boolean,
     title: string,
     loading: boolean,
     theme?: Theme

@@ -15,7 +15,6 @@ function Main() {
   const initialState = {
     app: {
       theme: createMaterialTheme(primaryTheme)(),
-      useResponsiveFonts: true,
       title: 'Loading...',
       loading: true
     },

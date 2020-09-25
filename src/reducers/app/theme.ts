@@ -5,7 +5,7 @@ import { createMaterialTheme } from '../../utils';
 const { app } = constants;
 
 export default function theme(
-  state: Partial<App.AppState> = { useResponsiveFonts: true },
+  state: Partial<App.AppState> = {},
   action: App.AppAction
 ) {
   switch (action.type) {
