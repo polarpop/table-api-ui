@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Backdrop from '@material-ui/core/Backdrop';
 
 import { mapStateToProps } from '../../utils';
-import { onAppError, onTitleChange } from '../../actions';
+import { onAppError, onAppLoaded, onTitleChange } from '../../actions';
 
 import { ErrorAccordian } from './ErrorMessageAccordian';
 
@@ -34,6 +34,7 @@ class ErrorBoundary extends React.Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: any) {
     this.props.dispatch(onAppError({ error }));
     this.props.dispatch(onTitleChange("Something went wrong..."));
+    this.props.dispatch(onAppLoaded());
   }
 
   render() {
