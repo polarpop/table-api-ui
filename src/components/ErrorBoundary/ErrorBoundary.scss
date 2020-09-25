@@ -1,0 +1,8 @@
+.error-accordian {
+  margin-top: 15px;
+
+  &:before,
+  &:after {
+    background-color: transparent !important;
+  }
+}
